@@ -1,0 +1,21 @@
+h1{
+    background: linear-gradient(0.25turn,rgb(124, 255, 68),white);
+    color: white;
+	text-shadow: 1px 1px 2px rgb(108, 108, 250);
+}
+h2{
+    font-family: Arial;
+    border-bottom-style: groove;
+    border-bottom-color: rgb(124, 255, 68);
+}
+a:link {
+    color: rgb(108, 108, 250);
+  }
+  
+  a:visited {
+    color: rgb(211, 211, 255);
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
