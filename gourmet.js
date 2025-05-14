@@ -1,11 +1,11 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
-  console.log(results.shop.genre.name);
-  console.log(results.shop.open);
-  console.log(results.shop.budget.name);
-  console.log(results.shop.access);
-  console.log(results.shop.address);
+  console.log(data.results.shop.genre.name);
+  console.log(data.results.shop.open);
+  console.log(data.results.shop.budget.name);
+  console.log(data.results.shop.access);
+  console.log(data.results.shop.address);
 }
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
