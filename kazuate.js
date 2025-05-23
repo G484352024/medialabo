@@ -16,7 +16,8 @@ function hantei() {
   
   let yoso = document.querySelector('input[name="suuzi"]');
   p = document.querySelector('span#answer');
-  p.textContent = yoso;
+  h = Number('yoso');
+  p.textContent = h;
   suuzi = Number(yoso.value);
   console.log(suuzi);
 
