@@ -1,13 +1,6 @@
-
-th.kensaku{
-    font-size:50px;
-    background-color: rgb(224, 130, 130);
+body {
+  background-color: peachpuff;
 }
-th.nakami{
-    color:white;
-    background: rgb(109, 45, 17);
-    width:200px;
-}
-td{
-    background: rgb(244, 214, 187);
+button{
+    background-color:rgb(255, 188, 188);
 }
