@@ -1,22 +1,27 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
-  for(data of data.list){
-    console.log(results.shop.name);
+  for(let a of data.results.shop){
+    console.log(a.access);
+    console.log(a.address);
+    console.log(a.budget.avarage);
+    console.log(a.genre.name);
+    console.log(a.name);
   }
 }
 // 課題5-1 の関数 printDom() はここに記述すること
-printDom()
-let b = document.querySelector('button#print');
-b.addEventListener('click', printDom);
-
 function printDom(data) {
-  p = document.querySelector('br#in');
-  p.textContent = (data.results.shop.access);
-  p.textContent = (data.results.shop.address);
-  p.textContent = (data.results.shop.budget);
-  p.textContent = (data.results.shop.genre);
-  p.textContent = (data.results.shop.name);
+  let div = document.querySelector('div#result');
+  count++;
+  let countP = document.createElement('p');
+  countP.textContent = '検索結果'+count+'件目';
+  i.insertAdjacentElement('beforeend',countP);
+
+  let u=document.createElement('ul');
+  let i = document.querySelector('div#result');
+   div.insertAdjacentElement('beforeend',u);
+   let l = document.createElement('li');
+  
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
