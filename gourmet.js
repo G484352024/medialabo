@@ -1,13 +1,15 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
-  console.log(data.results.shop.access);
-  console.log(data.results.shop.address);
-  console.log(data.results.shop.budget);
-  console.log(data.results.shop.genre);
-  console.log(data.results.shop.name);
+  for(data of data.list){
+    console.log(results.shop.name);
+  }
 }
 // 課題5-1 の関数 printDom() はここに記述すること
+printDom()
+let b = document.querySelector('button#print');
+b.addEventListener('click', printDom);
+
 function printDom(data) {
   p = document.querySelector('br#in');
   p.textContent = (data.results.shop.access);
