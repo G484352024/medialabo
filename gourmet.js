@@ -4,9 +4,10 @@ function print(data) {
   for(let a of data.results.shop){
     console.log(a.access);
     console.log(a.address);
-    console.log(a.budget.avarage);
+    console.log(a.budget.average);
     console.log(a.genre.name);
     console.log(a.name);
+    console.log(a.open);
   }
 }
 // 課題5-1 の関数 printDom() はここに記述すること
@@ -15,23 +16,61 @@ function printDom(data) {
   count++;
   let countP = document.createElement('p');
   countP.textContent = '検索結果'+count+'件目';
+  div.insertAdjacentElement('beforeend',countP);
   i.insertAdjacentElement('beforeend',countP);
 
   let u=document.createElement('ul');
   let i = document.querySelector('div#result');
-   div.insertAdjacentElement('beforeend',u);
-   let l = document.createElement('li');
+  div.insertAdjacentElement('beforeend',u);
+  let l = document.createElement('li');
+
+  l = document.createElement('li');
+  u.insertAdjacentElement('beforeend',l);
+  l.textContent='店舗名:'+a.name;
+
+  l = document.createElement('li');
+  u.insertAdjacentElement('beforeend',l);
+  l.textContent='ジャンル:'+a.genre.name;
+
+  l = document.createElement('li');
+  u.insertAdjacentElement('beforeend',l);
+  l.textContent='営業日時:'+a.open;
+
+  l = document.createElement('li');
+  u.insertAdjacentElement('beforeend',l);
+  l.textContent='予算:'+a.budget.average;
+
+  l = document.createElement('li');
+  u.insertAdjacentElement('beforeend',l);
+  l.textContent='アクセス:'+a.acsess;
+
+  l = document.createElement('li');
+  u.insertAdjacentElement('beforeend',l);
+  l.textContent='住所:'+a.address;
   
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
-
+let b = document.querySelector('#check');
+b.addEventListener('click',sendRequest);
 
 
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
+  let div = document.querySelector('div#result');
+  let u = document.querySelectorAll('ul');
+  let rep = dosument.querySelectorAll('p');
 
+  if(div !== null){
+    for(let ul of u){
+      ul.remove();
+    }
+    for(let p of rep){
+      p.remove();
+    }
+  }
+  
 }
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
