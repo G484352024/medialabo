@@ -12,12 +12,14 @@ function print(data) {
 }
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
-  let div = document.querySelector('div#result');
+  let count = 0;
+  for (let a of data.results.shop){
+    let div = document.querySelector('div#result');
   count++;
   let countP = document.createElement('p');
   countP.textContent = '検索結果'+count+'件目';
   div.insertAdjacentElement('beforeend',countP);
-  i.insertAdjacentElement('beforeend',countP);
+  /*i.insertAdjacentElement('beforeend',countP);*/
 
   let u=document.createElement('ul');
   let i = document.querySelector('div#result');
@@ -47,6 +49,7 @@ function printDom(data) {
   l = document.createElement('li');
   u.insertAdjacentElement('beforeend',l);
   l.textContent='住所:'+a.address;
+  }
   
 }
 
