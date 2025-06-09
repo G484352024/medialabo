@@ -42,7 +42,7 @@ function printDom(data) {
 
   l = document.createElement('li');
   u.insertAdjacentElement('beforeend',l);
-  l.textContent='アクセス:'+a.acsess;
+  l.textContent='アクセス:'+a.access;
 
   l = document.createElement('li');
   u.insertAdjacentElement('beforeend',l);
@@ -60,7 +60,7 @@ b.addEventListener('click', sendRequest);
 function sendRequest() {
   let div = document.querySelector('div#result');
   let u = document.querySelectorAll('ul');
-  let rep = dosument.querySelectorAll('p');
+  let rep = document.querySelectorAll('p');
 
   if(div !== null){
     for(let ul of u){
@@ -72,8 +72,13 @@ function sendRequest() {
   }
   let s = document.querySelector('select#gurume');
   let idx = s.selectedIndex;
+
   let os = s.querySelectorAll('option');
   let o = os.item(idx);
+
+  console.log();
+  console.log();
+  console.log();
 
   let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+o.getAttribute('value')+'.json';
 
