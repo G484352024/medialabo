@@ -52,7 +52,7 @@ function printDom(data) {
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
 let b = document.querySelector('#check');
-b.addEventListener('click',sendRequest);
+b.addEventListener('click', sendRequest);
 
 
 
