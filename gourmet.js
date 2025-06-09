@@ -70,12 +70,31 @@ function sendRequest() {
       p.remove();
     }
   }
-  
+  let s = document.querySelector('select#gurume');
+  let idx = s.selectedIndex;
+  let os = s.querySelectorAll('option');
+  let o = os.item(idx);
+
+  let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+o.getAttribute('value')+'.json';
+
+  axios.get(url)
+  .then(showResult)
+  .catch(showError)
+  .then(finish);
 }
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
 function showResult(resp) {
+  let data = resp.data;
 
+  if(typeof data === 'string'){
+    data = JSON.parse(data);
+  }
+
+  console.log(data);
+
+  console.log(data.x);
+  printDom(data);
 }
 
 // 課題6-1: 通信エラーが発生した時の処理
