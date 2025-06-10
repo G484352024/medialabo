@@ -11,8 +11,8 @@ function print(data) {
   }
 }
 // 課題5-1 の関数 printDom() はここに記述すること
+let count = 0;
 function printDom(data) {
-  let count = 0;
   for (let a of data.results.shop){
     let div = document.querySelector('div#result');
   count++;
@@ -54,7 +54,7 @@ function printDom(data) {
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
-let b = document.querySelector('#check');
+let b = document.querySelector('#print');
 b.addEventListener('click', sendRequest);
 
 
@@ -73,16 +73,13 @@ function sendRequest() {
       p.remove();
     }
   }
-  let s = document.querySelector('select#gurume');
+  /*let s = document.querySelector('select#gurume');
   let idx = s.selectedIndex;
 
   let os = s.querySelectorAll('option');
-  let o = os.item(idx);
+  let o = os.item(idx);*/
 
-  console.log();
-  console.log();
-  console.log();
-
+  
   let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+o.getAttribute('value')+'.json';
 
   axios.get(url)
