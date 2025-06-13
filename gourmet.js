@@ -13,44 +13,47 @@ function print(data) {
 // 課題5-1 の関数 printDom() はここに記述すること
 let count = 0;
 function printDom(data) {
-  for (let a of data.results.shop){
-    let div = document.querySelector('div#result');
-  count++;
-  let countP = document.createElement('p');
-  countP.textContent = '検索結果'+count+'件目';
-  div.insertAdjacentElement('beforeend',countP);
-  /*i.insertAdjacentElement('beforeend',countP);*/
+  function printDom(data) {
+  const result = document.querySelector('div#result');
 
-  let u=document.createElement('ul');
-  let i = document.querySelector('div#result');
-  div.insertAdjacentElement('beforeend',u);
-  let l = document.createElement('li');
+  for (let shop of data.results.shop) {
+    const gurahu = document.createElement('div');
+    gurahu.classList.add('gurahu');
 
-  l = document.createElement('li');
-  u.insertAdjacentElement('beforeend',l);
-  l.textContent='店舗名:'+a.name;
+    const nameDiv = document.createElement('div');
+    nameDiv.classList.add('two');
+    nameDiv.textContent = shop.name;
+    gurahu.appendChild(nameDiv);
 
-  l = document.createElement('li');
-  u.insertAdjacentElement('beforeend',l);
-  l.textContent='ジャンル:'+a.genre.name;
+    const genreDiv = document.createElement('div');
+    genreDiv.classList.add('one');
+    genreDiv.textContent = shop.genre.name;
+    gurahu.appendChild(genreDiv);
 
-  l = document.createElement('li');
-  u.insertAdjacentElement('beforeend',l);
-  l.textContent='営業日時:'+a.open;
+    const openDiv = document.createElement('div');
+    openDiv.classList.add('one');
+    openDiv.textContent = shop.open;
+    gurahu.appendChild(openDiv);
 
-  l = document.createElement('li');
-  u.insertAdjacentElement('beforeend',l);
-  l.textContent='予算:'+a.budget.average;
+    const budgetDiv = document.createElement('div');
+    budgetDiv.classList.add('one');
+    budgetDiv.textContent = shop.budget.average;
+    gurahu.appendChild(budgetDiv);
 
-  l = document.createElement('li');
-  u.insertAdjacentElement('beforeend',l);
-  l.textContent='アクセス:'+a.access;
+    const accessDiv = document.createElement('div');
+    accessDiv.classList.add('two');
+    accessDiv.textContent = shop.access;
+    gurahu.appendChild(accessDiv);
 
-  l = document.createElement('li');
-  u.insertAdjacentElement('beforeend',l);
-  l.textContent='住所:'+a.address;
+    const addressDiv = document.createElement('div');
+    addressDiv.classList.add('three');
+    addressDiv.textContent = shop.address;
+    gurahu.appendChild(addressDiv);
+
+    result.appendChild(gurahu);
   }
-  
+}
+
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
@@ -61,31 +64,32 @@ b.addEventListener('click', sendRequest);
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
+  function sendRequest() {
+  // 検索結果を表示する領域の初期化
   let div = document.querySelector('div#result');
-  let u = document.querySelectorAll('ul');
-  let rep = document.querySelectorAll('p');
-
-  if(div !== null){
-    for(let ul of u){
-      ul.remove();
-    }
-    for(let p of rep){
-      p.remove();
-    }
+  if (div !== null) {
+    div.innerHTML = '';
   }
-  /*let s = document.querySelector('select#gurume');
-  let idx = s.selectedIndex;
 
-  let os = s.querySelectorAll('option');
-  let o = os.item(idx);*/
+  // 入力値を取得
+  let input = document.querySelector('#namae');
+  let keyword = input.value.trim(); // 空白除去
 
-  
-  let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+o.getAttribute('value')+'.json';
+  if (keyword === '') {
+    alert('検索ワードを入力してください');
+    return;
+  }
 
+  // URL を構築
+  let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + keyword + '.json';
+
+  // Ajaxリクエスト送信
   axios.get(url)
-  .then(showResult)
-  .catch(showError)
-  .then(finish);
+    .then(showResult)
+    .catch(showError)
+    .then(finish);
+}
+
 }
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
